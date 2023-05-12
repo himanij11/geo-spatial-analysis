@@ -1,0 +1,14 @@
+1. Create a virtual env with:
+conda create -n geo_env --file requirements.txt
+2. use the file requirements.txt while creating the env
+3. run the file python load_data.py to load the data by scraping it from the link ("http://download.geonames.org/export/dump/") and uploads it to S3.
+4. We have used an EMR cluster(m6gd) to clean the data and write the data back to S3
+5. We have used AWS Glue to extract the data from S3 and load it to Redshift
+6. For the ease of testing the programs, we have included the dataset in the gitlab server itself(inside apps folder)
+7. To run the code, go to the geo_spatial_analysis/apps directory do : streamlit run file_name.py. Also make sure to have the dataset downloaded from the google drive link(https://drive.google.com/drive/folders/10YKwbaVkY-NWO7HqA0RAIb-7_pDmQg1Q?usp=sharing)
+    There are 3 types of analysis, each will have a Browser UI
+    i) index_analysis.py - analysis for all the countries based on a particular feature(like buildings), as well as analysis for a particular country and how it compares with its neighbours
+    ii) geopandas_analysis.py - analysis based on geospatial data and visualisation of vicinity circles as well as heatmaps for a particular country based on a feature
+    iii) feature_analysis_by_country.py - analysis for a particular country by displaying their most prominent and least prominent features and suggesting on areas of improvement
+
+8. visualisations will open up in browser
